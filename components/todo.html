@@ -1,0 +1,17 @@
+<div class="col-lg-12 todo">
+  <p class='col-lg-8'>
+    {{$ctrl.text}}
+  </p>
+  <button class="btn btn-success btn-sm pull-right" style="margin-left: 5px;">Done</button>
+  <button class="btn btn-danger btn-sm pull-right" ng-click="remove($index)">Remove</button>
+</div>
+
+<style>
+  .todo{
+    background-color: white;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px 1px #000000;
+  }
+</style>
