@@ -5,15 +5,14 @@
     <title>myToDo</title>
 
     <!-- bootstrap -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <!-- custom styles -->
     <link rel="stylesheet" href="assets/css/styles.css">
 
     <!-- favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <!-- <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png"> -->
-    <!-- <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png"> -->
 
   </head>
   <body>
@@ -42,11 +41,11 @@
       <div class="container" ng-controller="todo-controller">
 
         <div class="col-lg-offset-1 col-lg-10" id="todo-list">
-          <to-do-item ng-repeat="item in items" text={{item}}></to-do-item>
+          <to-do-item ng-repeat="item in appContext.items" text={{item}}></to-do-item>
         </div>
 
         <div class="col-lg-offset-1 col-lg-10">
-          <form class="todo-form" ng-submit='add(todo)'>
+          <form class="todo-form" ng-submit='methods.add(todo)'>
             <div class="form-group">
               <input type="text" class="form-control" placeholder="Todo Item" ng-model="todo.item"/>
             </div>
@@ -58,11 +57,14 @@
 
     <!-- angularjs -->
     <script src="https://opensource.keycdn.com/angularjs/1.6.2/angular.min.js"></script>
+
+    <!-- app -->
     <script src="app.js"></script>
 
     <!-- bootstrap and jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
   </body>
 </html>
