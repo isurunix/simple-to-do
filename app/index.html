@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app="app">
+<html ng-app="todo-app">
   <head>
     <meta charset="utf-8">
     <title>myToDo</title>
@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="assets/css/styles.css">
 
     <!-- favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
 
   </head>
   <body>
@@ -26,7 +26,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </buttton>
-          <a class="navbar-brand" href="#"><img style="margin-top: -35px; max-width:100px" src="./favicon-96x96.png" /></a>
+          <a class="navbar-brand" href="#"><img style="margin-top: -35px; max-width:100px" src="assets/favicon-96x96.png" /></a>
         </div>
         <div class="navbar-collapse collapse" id="navbar">
           <ul class="nav navbar-nav">
@@ -38,20 +38,22 @@
     </nav>
 
     <section class="todo-section">
-      <div class="container" ng-controller="todo-controller">
+      <div class="container" ng-controller="ToDoController as ctrl">
 
-        <div class="col-lg-offset-1 col-lg-10" id="todo-list">
-          <to-do-item ng-repeat="item in appContext.items" text={{item}}></to-do-item>
-        </div>
-
-        <div class="col-lg-offset-1 col-lg-10">
-          <form class="todo-form" ng-submit='methods.add(todo)'>
+        
+        <div class="col-lg-12 col-xs-12">
+          <form class="todo-form" ng-submit='ctrl.add(todo)'>
             <div class="form-group">
               <input type="text" class="form-control" placeholder="Todo Item" ng-model="todo.item"/>
             </div>
-             <pre>todo = {{todo | json}}</pre>
+             <!-- <pre>todo = {{todo | json}}</pre> -->
           </form>
         </div>
+        
+        <div class="col-lg-12 col-xs-12" id="todo-list">
+          <to-do-item ng-repeat="item in ctrl.items" text={{item}} on-delete="ctrl.remove(item)"></to-do-item>
+        </div>
+        
       </div>
     </section>
 
@@ -60,6 +62,8 @@
 
     <!-- app -->
     <script src="app.js"></script>
+    <script src="app.controller.js"></script>
+    <script src="app.todo.component.js"></script>
 
     <!-- bootstrap and jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
